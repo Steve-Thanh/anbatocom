@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giao Diện Tổng Hợp - Template Trường Đại Học</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    
+    a:link {
+  color: rgb(44, 19, 205);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover no-repeat;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 40px;
+      margin: 0 0 10px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      text-shadow: 2px 2px 5px rgba(161, 133, 133, 0.6);
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #39b3ef;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 999;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #006699;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      margin: 40px auto;
+      max-width: 960px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .block {
+      min-width: 100%;
+      height: 360px;
+      display: none;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+    }
+    .block.active {
+      display: block;
+    }
+    .block-content {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      background: rgba(0, 0, 0, 1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .block-content h2,
+    .block-content p {
+      margin: 5px 0;
+    }
+    .but {
+      background-color: #1a8cff;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .carousel-btn.left {
+      left: 10px;
+    }
+    .carousel-btn.right {
+      right: 10px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      gap: 20px;
+    }
+    main {
+      flex: 3;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    /* aside {
+      flex: 1;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px; */
+    /* } */
+    section {
+      margin-bottom: 40px;
+    }
+     h2 {
+      color: #690eb3;
+    }
+    h3 {
+      color: #004080;}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px; 
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button, input[type="submit"] {
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    button:hover, input[type="submit"]:hover {
+      background-color: #0066cc;
+    }
+    footer {
+      background-color: #599fe6;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Đại học & Bí quyết đỗ đại học </h1>
+    <p>Danh sách các trường đại học nổi bật</p>
+  </header>
+  <nav>
+    <a href="#gioi-thieu">Khái niệm</a>
+    <a href="#hoc-tap">Học tập</a>
+    <a href="#huong-nghiep">Bí quyết đỗ đại học</a>
+    <a href="#tot-nghiep">Một số lựa chọn khác</a>
+    <a href="#lien-he">Liên hệ</a>
+  </nav>
+
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="prevBlock()">&#8592;</button>
+    <div class="carousel">
+      <div class="block active" data-bg="hcmut.jpg">
+        <div class="block-content">
+          <h2 style="font-family: 'Varela Round', sans-serif;">ĐH Bách Khoa TP.HCM</h2>
+          <p style="font-family: 'Varela Round', sans-serif;">Trường kỹ thuật hàng đầu với nhiều ngành kỹ thuật - công nghệ.</p>
+          <button class="but" onclick="window.open('https://hcmut.edu.vn')">Tìm hiểu thêm</button>
+        </div>
+      </div>
+      <div class="block" data-bg="hcmus.jpg">
+        <div class="block-content">
+          <h2 style="font-family: 'Varela Round', sans-serif;">ĐH Khoa học Tự nhiên TP.HCM</h2>
+          <p style="font-family: 'Varela Round', sans-serif;">Trường đào tạo các ngành khoa học cơ bản và nghiên cứu ứng dụng.</p>
+          <button class="but" onclick="window.open('https://hcmus.edu.vn')">Tìm hiểu thêm</button>
+        </div>
+      </div>
+      <div class="block" data-bg="uel.jpg">
+        <div class="block-content">
+          <h2 style="font-family: 'Varela Round', sans-serif;">ĐH Kinh tế - Luật (UEL)</h2>
+          <p style="font-family: 'Varela Round', sans-serif;">Chuyên ngành kinh tế, luật và quản lý thuộc ĐHQG TP.HCM.</p>
+          <button class="but" onclick="window.open('https://uel.edu.vn')">Tìm hiểu thêm</button>
+        </div>
+      </div>
+      <div class="block" data-bg="hust.jpg">
+        <div class="block-content">
+          <h2 style="font-family: 'Varela Round', sans-serif;">ĐH Bách Khoa Hà Nội </h2>
+          <p style="font-family: 'Varela Round', sans-serif;">Trường đào tạo các ngành khoa học cơ bản và nghiên cứu ứng dụng.</p>
+          <button class="but" onclick="window.open('https://hust.edu.vn/')">Tìm hiểu thêm</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="nextBlock()">&#8594;</button>
+  </div>
+
+  <div class="container">
+    <main>
+      <section id="gioi-thieu">
+        <h2>Khái niệm</h2>
+        <p>Là một tổ chức giáo dục lớn, bao gồm nhiều trường thành viên (còn gọi là trường đại học trực thuộc).
+          Ví dụ: Đại học Quốc gia Hà Nội, Đại học Huế, Đại học Đà Nẵng — đây là các "đại học" gồm nhiều trường trực thuộc.
+
+          Mỗi trường thành viên đào tạo chuyên sâu một lĩnh vực (ví dụ: Trường Đại học Y, Trường Đại học Kinh tế...).
+          </p>
+          <img src="rimit.jpg" alt="Đại học RMIT" style="width: 100%; height: auto; border-radius:auto; margin-top:auto;">
+
+      </section>
+      <section id="hoc-tap">
+        <h2>Tài nguyên học tập</h2>
+        <p >🎓 1. Trường Đại học Kinh tế – ĐHQGHN(<a href="https://ueb.edu.vn/Dao-Tao/TAI-NGUYEN-HOC-TAP-Khoa-Ke-toan---Kiem-toan/1666/1674/2081">UEB</a>) </p>
+        
+        <p>🎓 2. Đại học Bách khoa Hà Nội(<a href="https://hust.edu.vn/vi/tai-nguyen-so/tai-nguyen-so/tai-nguyen-so-1.html">HUST</a>)</p>
+        <p>🎓 3. Đại học Quốc gia TP.HCM (<a href="https://www.vnulib.edu.vn/">VNU-HCM</a>)</p>
+        <ul>
+          <li><a href="https://khokhoahoc.org/khoa-hoc-mien-phi/">Khóa học trực tuyến miễn phí</a></li>
+          <li><a href="https://www.wikihow.vn/H%E1%BB%8Dc-c%C3%B3-hi%E1%BB%87u-qu%E1%BA%A3">Mẹo học hiệu quả</a></li>
+        </ul>
+        <a class="btn" href="https://tailieuhoctap.edu.vn/">Khám phá thêm</a>
+        <img src="tainguyenhoctap.jpg" alt="Đại học RMIT" style="width: 100%; height: auto; border-radius: auto; margin-top: auto;">
+      </section>
+      <section id="huong-nghiep">
+        <h2>🎯 BÍ QUYẾT ĐỖ ĐẠI HỌC – TỪ NGƯỜI ĐI TRƯỚC</h2>
+        <p>🌱 1. Xác định mục tiêu rõ ràng từ sớm
+          “Không có gió thuận chiều nào cho con tàu không biết mình đi đâu.”
+          
+          Chọn ngành học phù hợp với sở thích, năng lực và định hướng nghề nghiệp.
+          
+          Tìm hiểu các trường đại học uy tín đào tạo ngành đó, điểm chuẩn, tổ hợp môn xét tuyển.
+          
+          Viết ra mục tiêu cụ thể (ví dụ: “Đỗ ngành Công nghệ thông tin – Đại học Bách khoa Hà Nội, tổ hợp A00, điểm mục tiêu 27+”).
+          
+          📝 Lời khuyên: Hãy treo mục tiêu ở nơi dễ thấy – trước bàn học, sổ tay, điện thoại – để nhắc nhở bản thân mỗi ngày.
+          
+         <p> 🧠 2. Ôn luyện có chiến lược – không phải học "cày bừa"
+        <br>🔹 Phân bổ thời gian hợp lý theo năng lực:
+          Chia môn học theo 3 nhóm: Mạnh – Trung bình – Yếu.
+          
+          Đầu tư thời gian cho môn yếu hơn, nhưng vẫn duy trì luyện tập đều cả 3 môn/tổ hợp. </p>
+         
+          🔹 Học sâu – hiểu bản chất:
+          Đừng học vẹt! Hãy hiểu rõ “tại sao” chứ không chỉ “như thế nào”.
+          
+          Khi học một kiến thức, thử tự giảng lại như giáo viên. Nếu làm được, nghĩa là bạn đã hiểu.
+         <br>
+          🔹 Lập kế hoạch ôn tập chi tiết:
+          Kế hoạch tháng → tuần → ngày.
+          
+          Xen kẽ giữa học mới và ôn lại.
+          
+          Cuối mỗi tuần nên có 1 buổi tổng kết kiến thức và làm đề luyện tập.
+         </p>
+         <p> 📚 3. Chọn tài liệu học và đề thi chuẩn
+          SGK vẫn là nền tảng cơ bản. Đừng bỏ qua.
+          
+          Sách tham khảo uy tín: Chọn sách đã được đánh giá cao, được nhiều giáo viên khuyên dùng.
+          
+          Đề thi thử chất lượng: Ưu tiên đề của các trường chuyên, sở GD-ĐT các tỉnh thành, hoặc các trung tâm luyện thi uy tín.
+          <br>  
+          💡 Mẹo: Tự làm đề trong điều kiện thi thật – giới hạn thời gian, không mở sách – để tăng phản xạ và giảm áp lực tâm lý.
+        </p><p>
+          🧘 4. Giữ tinh thần ổn định – yếu tố then chốt
+          Nhiều học sinh học rất tốt nhưng trượt chỉ vì tâm lý!
+          
+          Hãy học cách hít thở sâu, thiền nhẹ, hoặc tập thể dục để giảm stress.
+          
+          Tự tin vào bản thân – không so sánh với người khác.
+          
+          "Thi đại học là chạy marathon, không phải chạy nước rút."
+        </p><p>
+          🤝 5. Tận dụng sự giúp đỡ
+          Hỏi thầy cô, bạn bè, hoặc tìm nhóm học tập cùng tiến.
+          
+          Tham gia các hội nhóm online về ôn thi đại học để chia sẻ kinh nghiệm và cập nhật kiến thức mới.
+        </p><p>
+          🕒 6. Không đợi “nước đến chân mới nhảy”
+          Đừng chủ quan, dù là học sinh giỏi.
+          
+          Hãy bắt đầu ôn tập ít nhất 6-8 tháng trước kỳ thi để có thời gian làm chủ kiến thức và rèn kỹ năng.
+          </p>
+          <p>🔥 7. Luyện đề cận ngày thi – tăng tốc nhưng không quá sức
+          Giai đoạn 1-2 tháng cuối, tập trung luyện đề, rà soát những “bẫy” thường gặp.
+          
+          Học cách phân bổ thời gian làm bài thi hợp lý, ưu tiên làm câu chắc chắn trước.
+          
+          Lưu ý về mẹo tránh mất điểm: tô đúng mã đề, điền đúng thông tin, không để sót câu.
+        </p>
+         <p> ❤️ 8. Giữ sức khỏe và chế độ sinh hoạt khoa học
+          Ngủ đủ (ít nhất 6-7 tiếng/ngày).
+          
+          Ăn uống đầy đủ dinh dưỡng, tránh học quá khuya làm giảm khả năng ghi nhớ.
+          
+          Tránh xa mạng xã hội khi học – sử dụng ứng dụng chặn thông báo hoặc đặt giờ nghỉ cố định. 
+        </p>
+          <p>🏁 Kết luận: Thành công đến từ sự kiên trì và chiến lược đúng đắn
+          Đỗ đại học không chỉ là “thi đỗ” mà còn là bước khởi đầu cho hành trình dài phía trước. Hãy bắt đầu từ hôm nay, kiên trì từng ngày, và tin rằng bạn xứng đáng đạt được điều mình nỗ lực!  </p>
+        </p>
+        <li><a href="https://tailieuonthi.org/">Tài liệu luyện thi THPT</a></li>
+      </section>
+      <section id="tot-nghiep">
+        <h2>Lựa chọn khác </h2>
+        <p> Một số đại học và trường đại học nổi bật ở Việt Nam
+          <ul>Các đại học (có nhiều trường thành viên):
+          <li>Đại học Huế(<a href="https://hueuni.edu.vn/">HUEUNI</a>)</li>
+          <li>Đại học Đà Nẵng(<a href="https://www.udn.vn/">UDN</a>)</li>
+          <li>Đại học Thái Nguyên(<a href="https://tnu.edu.vn/">TNU</a>)</li>
+          </ul>
+          <ul>  Một số trường đại học độc lập nổi tiếng:
+          <li>Đại học Ngoại thương(<a href="https://ftu.edu.vn">FTU</a>)</li>
+          <li>Đại học Kinh tế Quốc dân(<a href="https://www.neu.edu.vn">NEU</a>)</li>
+          <li>Đại học Y Hà Nội(<a href="https://hmu.edu.vn/">HMU</a>)</li>
+          <li>Đại học Y Dược TP.HCM(<a href="https://ump.edu.vn/">UMP</a>)</li>
+          <li> Đại học Sư phạm TP.HCM(<a href="https://hcmue.edu.vn/">HCMUE</a>)</li>
+          <li> Đại học Tôn Đức Thắng(<a href="https://tdtu.edu.vn/">TDTU</a>)</li>
+          <li>Đại học FPT(<a href="https://daihoc.fpt.edu.vn/">FPT</a>)</li>
+          <li>Đại học RMIT Việt Nam (quốc tế)(<a href="https://www.rmit.edu.vn/vi">RMIT</a>)</li>
+            </ul>
+          </p>
+      </section>
+      <section id="lien-he">
+        <h2>Liên hệ</h2>
+        <form action="camon.html" method="post">
+          <input type="text" placeholder="Họ tên">
+          <input type="email" placeholder="Email">
+          <textarea rows="4" placeholder="Nội dung"></textarea>
+          <input type="submit" value="Gửi">
+        </form>
+      </section>
+    </main>
+    <!-- <aside>
+      <h3>Thông tin bổ sung</h3>
+      <p></p>
+    </aside> -->
+  </div>
+
+  <footer>
+    <p>&copy;  Thiết kế bởi Thành-Trần Văn Thành. </p>
+    <p>Facebook:   <a href="https://web.facebook.com/tran.thanh.260107">THÀNH</a></p>
+  </footer>
+
+  <script>
+    let current = 0;
+    const blocks = document.querySelectorAll('.block');
+
+    blocks.forEach(block => {
+      const bg = block.getAttribute('data-bg');
+      if(bg) {
+        block.style.backgroundImage = `url('${bg}')`;
+      }
+    });
+
+    function showBlock(idx) {
+      blocks.forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+    }
+    function prevBlock() {
+      current = (current - 1 + blocks.length) % blocks.length;
+      showBlock(current);
+    }
+    function nextBlock() {
+      current = (current + 1) % blocks.length;
+      showBlock(current);
+    }
+    showBlock(current);
+  </script>
+</body>
+</html>
