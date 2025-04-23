@@ -3,11 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giao Diện Tổng Hợp - Template Trường Đại Học</title>
+  <title>Template Trường Đại Học</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
+    
+
+.grid-anh {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.grid-anh a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.grid-anh a:hover {
+  transform: scale(1.03);
+}
+
+.grid-anh img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6); /* nền tối mờ */
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.grid-anh a:hover .text-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
     
     a:link {
   color: rgb(44, 19, 205);
@@ -32,7 +79,7 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
-    body {
+body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
@@ -50,8 +97,12 @@ a:active {
     header h1 {
       font-size: 40px;
       margin: 0 0 10px;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-family:'Courier New', Courier, monospace;
       text-shadow: 2px 2px 5px rgba(161, 133, 133, 0.6);
+
+    }
+    header p {
+      font-family:'Times New Roman', Times, serif;
     }
     nav {
       position: sticky;
@@ -156,6 +207,7 @@ a:active {
       padding: 20px;
       border-radius: 8px; */
     /* } */
+
     section {
       margin-bottom: 40px;
     }
@@ -209,7 +261,7 @@ a:active {
     <a href="#tot-nghiep">Một số lựa chọn khác</a>
     <a href="#lien-he">Liên hệ</a>
   </nav>
-
+ 
   <div class="carousel-container">
     <button class="carousel-btn left" onclick="prevBlock()">&#8592;</button>
     <div class="carousel">
@@ -244,7 +296,6 @@ a:active {
     </div>
     <button class="carousel-btn right" onclick="nextBlock()">&#8594;</button>
   </div>
-
   <div class="container">
     <main>
       <section id="gioi-thieu">
@@ -253,15 +304,38 @@ a:active {
           Ví dụ: Đại học Quốc gia Hà Nội, Đại học Huế, Đại học Đà Nẵng — đây là các "đại học" gồm nhiều trường trực thuộc.
 
           Mỗi trường thành viên đào tạo chuyên sâu một lĩnh vực (ví dụ: Trường Đại học Y, Trường Đại học Kinh tế...).
+          (<a href="https://www.zila.com.vn/bang-xep-hang-truong-dai-hoc-viet-nam.html">TOP 100 trường vào năm 2024</a>)
           </p>
           <img src="rimit.jpg" alt="Đại học RMIT" style="width: 100%; height: auto; border-radius:auto; margin-top:auto;">
-
+          <p>Một số đại học - cao đẳng và trường đại học nổi bật khác ở Việt Nam</p>
+        <div class="grid-anh">
+          <a href="https://hueuni.edu.vn/">
+            <img src="Dai-hoc-Hue.jpg" alt="Đại học Huế">
+            <div class="text-overlay">Đại học Huế</div>
+          </a>
+          <a href="https://tnu.edu.vn/">
+            <img src="thainguyen.jpg" alt="ĐHQG Hà Nội">
+            <div class="text-overlay">Đại học Thái Nguyên</div>
+          </a>
+          <a href="https://www.udn.vn">
+            <img src="danang.jpg" alt="Đại học Đà Nẵng">
+            <div class="text-overlay">Đại học Đà Nẵng</div>
+          </a>
+          <a href="https://www.rmit.edu.vn/vi">
+            <img src="rmit.jpg" alt="Đại học RMIT Việt Nam">
+            <div class="text-overlay">RMIT Việt Nam</div>
+          </a>
+          <a href="https://caodang.fpt.edu.vn/">
+            <img src="fptcaodang.jpg" alt="Cao đẳng FPT polytechnic">
+            <div class="text-overlay">Cao đẳng FPT polytechnic</div>
+          </a>
+        </div>
       </section>
       <section id="hoc-tap">
         <h2>Tài nguyên học tập</h2>
         <p >🎓 1. Trường Đại học Kinh tế – ĐHQGHN(<a href="https://ueb.edu.vn/Dao-Tao/TAI-NGUYEN-HOC-TAP-Khoa-Ke-toan---Kiem-toan/1666/1674/2081">UEB</a>) </p>
         
-        <p>🎓 2. Đại học Bách khoa Hà Nội(<a href="https://hust.edu.vn/vi/tai-nguyen-so/tai-nguyen-so/tai-nguyen-so-1.html">HUST</a>)</p>
+        <p>🎓 2. Đại học Bách khoa Hà Nội(<a href="https://hust.edu.vn/vi/news/cong-tac-sinh-vien/huong-dan-giang-vien-thiet-ke-bai-giang-them-tai-nguyen-hoc-tap-file-587352.html">HUST</a>)</p>
         <p>🎓 3. Đại học Quốc gia TP.HCM (<a href="https://www.vnulib.edu.vn/">VNU-HCM</a>)</p>
         <ul>
           <li><a href="https://khokhoahoc.org/khoa-hoc-mien-phi/">Khóa học trực tuyến miễn phí</a></li>
@@ -349,27 +423,20 @@ a:active {
         <li><a href="https://tailieuonthi.org/">Tài liệu luyện thi THPT</a></li>
       </section>
       <section id="tot-nghiep">
-        <h2>Lựa chọn khác </h2>
-        <p> Một số đại học và trường đại học nổi bật ở Việt Nam
-          <ul>Các đại học (có nhiều trường thành viên):
-          <li>Đại học Huế(<a href="https://hueuni.edu.vn/">HUEUNI</a>)</li>
-          <li>Đại học Đà Nẵng(<a href="https://www.udn.vn/">UDN</a>)</li>
-          <li>Đại học Thái Nguyên(<a href="https://tnu.edu.vn/">TNU</a>)</li>
-          </ul>
-          <ul>  Một số trường đại học độc lập nổi tiếng:
-          <li>Đại học Ngoại thương(<a href="https://ftu.edu.vn">FTU</a>)</li>
-          <li>Đại học Kinh tế Quốc dân(<a href="https://www.neu.edu.vn">NEU</a>)</li>
-          <li>Đại học Y Hà Nội(<a href="https://hmu.edu.vn/">HMU</a>)</li>
-          <li>Đại học Y Dược TP.HCM(<a href="https://ump.edu.vn/">UMP</a>)</li>
-          <li> Đại học Sư phạm TP.HCM(<a href="https://hcmue.edu.vn/">HCMUE</a>)</li>
-          <li> Đại học Tôn Đức Thắng(<a href="https://tdtu.edu.vn/">TDTU</a>)</li>
-          <li>Đại học FPT(<a href="https://daihoc.fpt.edu.vn/">FPT</a>)</li>
-          <li>Đại học RMIT Việt Nam (quốc tế)(<a href="https://www.rmit.edu.vn/vi">RMIT</a>)</li>
-            </ul>
-          </p>
+        <h2>Lựa chọn khác</h2>
+        <p>🎓 1. Học nghề: Nếu bạn không muốn học đại học, có thể chọn học nghề tại các trường dạy nghề hoặc trung cấp nghề. Đây là lựa chọn tốt cho những ai muốn nhanh chóng có việc làm.</p>
+        <p>🎓 2. Du học: Nếu bạn có khả năng tài chính và muốn trải nghiệm môi trường học tập quốc tế, du học là một lựa chọn tuyệt vời.</p>
+        <p>🎓 3. Khởi nghiệp: Nếu bạn có ý tưởng kinh doanh và muốn thử sức, khởi nghiệp có thể là con đường thú vị.</p>
+        <p>🎓 4. Nghỉ ngơi: Đôi khi, nghỉ ngơi và tìm hiểu bản thân cũng là một lựa chọn tốt. Bạn có thể tham gia các khóa học ngắn hạn, tình nguyện hoặc đi du lịch để mở rộng tầm nhìn.</p>
+        <p>🎓 5. Tìm kiếm việc làm: Nếu bạn không muốn học tiếp, có thể tìm kiếm việc làm ngay sau khi tốt
+         nghiệp. Nhiều công ty hiện nay không yêu cầu bằng cấp mà chỉ cần kỹ năng và kinh nghiệm.</p>
+        
       </section>
+      
+      
       <section id="lien-he">
         <h2>Liên hệ</h2>
+        <p style="color: #cc0055;" >Chúng tôi rất vui khi nhận được ý kiến đóng góp từ bạn. Hãy để lại thông tin của bạn bên dưới và chúng tôi sẽ liên hệ lại sớm nhất có thể.</p>
         <form action="camon.html" method="post">
           <input type="text" placeholder="Họ tên">
           <input type="email" placeholder="Email">
